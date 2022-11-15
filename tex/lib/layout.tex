@@ -1,0 +1,52 @@
+% Categories
+\newcommand{\CategoryAccessSecrets}{Access \& Secrets}
+\newcommand{\CategoryDelivery}{Delivery}
+\newcommand{\CategoryRecovery}{Recovery}
+\newcommand{\CategoryMonitoring}{Monitoring}
+\newcommand{\CategoryResources}{Resources}
+%
+% Colors
+\definecolor{ColorAccessSecrets}{HTML}{EE3232}
+\definecolor{ColorDelivery}{HTML}{540D6E}
+\definecolor{ColorRecovery}{HTML}{D98200}
+\definecolor{ColorMonitoring}{HTML}{28A9A9}
+\definecolor{ColorResources}{HTML}{068A51}
+%
+% Dimensions
+\pgfmathsetmacro{\cardroundingradius}{4mm}
+\pgfmathsetmacro{\striproundingradius}{0mm}
+\pgfmathsetmacro{\cardwidth}{7.6}
+\pgfmathsetmacro{\cardheight}{12.6}
+\pgfmathsetmacro{\stripwidth}{1.8}
+\pgfmathsetmacro{\strippadding}{0}
+\pgfmathsetmacro{\textpadding}{0.3}
+\pgfmathsetmacro{\ruleheight}{0.1}
+%
+\newcommand{\stripfontsize}{\Huge}
+\newcommand{\textfontsize}{\Large}
+\newcommand{\category}[2]{\color{white} #1 \hspace{5mm} \rotatebox[origin=c]{-90}{#2} \hspace{1mm}}
+%
+% Cards
+\newcommand{\GenericCard}[4]{
+    \begin{tikzpicture}
+      \fill[fill=#2!10,rounded corners=\striproundingradius] (0,0.72*\cardheight) rectangle (\cardwidth,\cardheight);
+      \draw[fill=#2!10] [#2!10] plot [smooth cycle] coordinates {(0.2*\cardwidth,0.8*\cardheight) (0.99*\cardwidth,0.75*\cardheight) (0.6*\cardwidth,0.4*\cardheight) (0.5*\cardwidth,0.25*\cardheight) (0.4*\cardwidth,0.17*\cardheight) (0.1*\cardwidth,0.1*\cardheight)};
+      \draw[fill=#2!10] [#2!10] plot [smooth cycle] coordinates {(0.75*\cardwidth,0.2*\cardheight) (0.8*\cardwidth,0.15*\cardheight) (0.7*\cardwidth,0.12*\cardheight) (0.6*\cardwidth,0.16*\cardheight)};
+      \fill[fill=#2!33,rounded corners=\striproundingradius] (0,0.79*\cardheight) rectangle (\cardwidth,\cardheight);
+      \draw[fill=#2!33] [#2!33] plot [smooth cycle] coordinates {(0.2*\cardwidth,0.8*\cardheight) (0.99*\cardwidth,0.8*\cardheight) (0.6*\cardwidth,0.6*\cardheight) (0.5*\cardwidth,0.5*\cardheight) (0.4*\cardwidth,0.3*\cardheight) (0.1*\cardwidth,0.3*\cardheight)};
+      \fill[fill=#2,rounded corners=\striproundingradius] (\strippadding,\strippadding) rectangle (\strippadding+\stripwidth,\cardheight-\strippadding) node[rotate=90,above left,black,font=\stripfontsize\sffamily,scale=1.1] {\category{#1}{#3} };
+        \draw[rounded corners=\cardroundingradius] (0,0) rectangle (\cardwidth,\cardheight);
+        \node[text width=(\cardwidth-\strippadding-\stripwidth-2*\textpadding)*1cm,below right,inner sep=0] at (\strippadding+\stripwidth+\textpadding,\cardheight-\textpadding) 
+        {   
+          \vspace{2mm}
+          \tikz{\fill[fill=#2] (0,0) rectangle (\cardwidth-\strippadding-\stripwidth-2*\textpadding,\ruleheight);}\\
+          {\textfontsize #4}\\
+        };
+        
+    \end{tikzpicture}
+}
+\newcommand{\AccessSecrets}[2]{\GenericCard{\CategoryAccessSecrets}{ColorAccessSecrets}{#1}{#2}}
+\newcommand{\Delivery}[2]{\GenericCard{\CategoryDelivery}{ColorDelivery}{#1}{#2}}
+\newcommand{\Recovery}[2]{\GenericCard{\CategoryRecovery}{ColorRecovery}{#1}{#2}}
+\newcommand{\Monitoring}[2]{\GenericCard{\CategoryMonitoring}{ColorMonitoring}{#1}{#2}}
+\newcommand{\Resources}[2]{\GenericCard{\CategoryResources}{ColorResources}{#1}{#2}}

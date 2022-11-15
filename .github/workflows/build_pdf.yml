@@ -1,0 +1,24 @@
+name: Build PDF artifact
+
+on:
+  push:
+    branch: ['*']
+
+jobs:
+  build_pdf:
+    
+    runs-on: ubuntu-latest
+
+    steps:
+      
+      - name: Check out repository code
+        uses: actions/checkout@v3
+      
+      - name: Build PDF 
+        run: ./utils/build_pdf.sh
+
+      - name: Publish build artifact
+        uses: actions/upload-artifact@v3
+        with:
+          name: cumulus
+          path: tex/*.pdf

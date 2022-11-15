@@ -1,0 +1,24 @@
+name: Build and publish PDF artifact
+
+on:
+  push:
+    tags:
+      - 'release/v*'
+
+jobs:
+  publish_pdf:
+    
+    runs-on: ubuntu-latest
+
+    steps:
+      
+      - name: Check out repository code
+        uses: actions/checkout@v3
+      
+      - name: Build PDF 
+        run: ./utils/build_pdf.sh
+
+      - name: Create release
+        uses: ncipollo/release-action@v1
+        with:
+          artifacts: tex/*.pdf
