@@ -1,5 +1,9 @@
 #!/bin/bash -ex
 
+# © 2022 TNG Technology Consulting
+#
+# SPDX-License-Identifier: Apache-2.0
+
 function get_current_version() {
   local tag_at_head
   local version_name
