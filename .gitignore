@@ -2,5 +2,7 @@
 *.fdb_latexmk
 *.fls
 *.log
-*.pdf
+*.out
+tex/*.pdf
+tex/version.tex
 
