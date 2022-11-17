@@ -66,7 +66,7 @@ function convert_pdf_to_jpg() {
     --net=none \
     -v "${repo_base_dir}:${container_work_dir}" \
     "${container_image}" \
-      -resize 3900 \
+      -resize 4350 \
       -density 240 \
       -background white \
       -flatten \
