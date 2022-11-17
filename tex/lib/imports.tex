@@ -10,6 +10,10 @@
 \usepackage[none]{hyphenat}
 \usepackage{hyperref}
 \usepackage{filecontents}
+\usepackage{ifthen}
 \renewcommand*\sfdefault{lmssq}
 \renewcommand*\familydefault{\sfdefault}
 \pagestyle{empty}
+
+\newboolean{doPrintEmptyCards}
+\setboolean{doPrintEmptyCards}{false}

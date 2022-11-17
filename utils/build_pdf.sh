@@ -48,6 +48,31 @@ function compile() {
       "${container_work_dir}/tex/${tex_file}" 
 }
 
+function convert_pdf_to_jpg() {
+  local pdf_file="${1}"
+  local jpg_file="${2}"
+
+  local repo_base_dir
+  local container_work_dir
+  local container_image
+  repo_base_dir="$(git rev-parse --show-toplevel)"
+  container_work_dir="/img"
+  container_image="elifesciences/imagemagick"
+  
+  docker run \
+    --rm \
+    -t \
+    --user="$(id -u):$(id -g)" \
+    --net=none \
+    -v "${repo_base_dir}:${container_work_dir}" \
+    "${container_image}" \
+      -resize 3900 \
+      -density 240 \
+      -background white \
+      -flatten \
+      "${container_work_dir}/${pdf_file}" \
+      "${container_work_dir}/${jpg_file}"
+}
 
 
 # main
@@ -57,3 +82,6 @@ echo "Building version ${current_version}"
 clean_tmp_files
 write_version_file "${current_version}"
 compile "cumulus" single_pages.tex
+compile "cumulus-unified" all_cards_on_one_page.tex
+convert_pdf_to_jpg "tex/cumulus-unified.pdf" "tex/cumulus_cards.jpg"
+

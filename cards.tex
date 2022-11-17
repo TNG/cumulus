@@ -4,6 +4,7 @@
 
 % 
 % Access & Secrets
+\AccessSecrets{2}{-}
 \AccessSecrets{3} {Our secrets are long-lived and can be reused when they get leaked.}
 \AccessSecrets{4} {We don't enforce strong passwords for cloud access, so brute-forcing is possible.}
 \AccessSecrets{5} {We (as developers) have access to technical credentials.}
@@ -33,6 +34,7 @@
 \Delivery{A} {We won't notice when someone alters the deploy pipeline.}
 %
 % Recovery
+\Recovery{2} {-}
 \Recovery{3} {We have backups but do not check regularly whether we can restore them or not.}
 \Recovery{4} {We have no backups for our infrastructure (IaC and its state).}
 \Recovery{5} {We have no backups of our application data.}
@@ -47,6 +49,10 @@
 \Recovery{A} {We have no disaster recovery plan.}
 %
 % Monitoring
+\Monitoring{2} {-}
+\Monitoring{3} {-}
+\Monitoring{4} {-}
+\Monitoring{5} {-}
 \Monitoring{6} {We can't easily identify useful information in logs.}
 \Monitoring{7} {We won't get an alert if an end user generates huge cloud bills for us.}
 \Monitoring{8} {We don't notice if an authenticated attacker/developer deactivates or manipulates our tools for traceability.}
@@ -58,6 +64,9 @@
 \Monitoring{A} {We write secrets/personal data to our logs.}
 %
 % Resources
+\Resources{2} {-}
+\Resources{3} {-}
+\Resources{4} {-}
 \Resources{5} {We can't get contacted by our cloud provider in case of emergency.}
 \Resources{6} {We don't regularly check compliance with our policy for using/configuring cloud resources.}
 \Resources{7} {We have not configured any rate limits for our services.}

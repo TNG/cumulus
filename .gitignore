@@ -4,5 +4,6 @@
 *.log
 *.out
 tex/*.pdf
+tex/*.jpg
 tex/version.tex
 

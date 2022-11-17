@@ -21,4 +21,6 @@ jobs:
         uses: actions/upload-artifact@v3
         with:
           name: cumulus
-          path: tex/*.pdf
+          path: |
+            tex/*.pdf
+            tex/*.jpg

@@ -21,4 +21,4 @@ jobs:
       - name: Create release
         uses: ncipollo/release-action@v1
         with:
-          artifacts: tex/*.pdf
+          artifacts: "tex/*.pdf,tex/*.jpg"
