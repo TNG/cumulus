@@ -8,10 +8,10 @@
 \AccessSecrets{3} {Our secrets are long-lived and can be reused when they get leaked.}
 \AccessSecrets{4} {We don't enforce strong passwords for cloud access, so brute-forcing is possible.}
 \AccessSecrets{5} {We (as developers) have access to technical credentials.}
-\AccessSecrets{6} {We don't propagate changes in permissions fast enough throughout the whole system.}
+\AccessSecrets{6} {We don't propagate changes in permissions quickly enough throughout the whole system.}
 \AccessSecrets{7} {We can't trace back whether authenticated users/developers granted themselves additional permissions.}
 \AccessSecrets{8} {We don't restrict permissions (developers, technical users) to the minimum, allowing for a privilege escalation.}
-\AccessSecrets{9} {Our Identity and Access Management lets authenticated users/developer grant themselves additional permissions.}
+\AccessSecrets{9} {Our Identity and Access Management lets authenticated users/developers grant themselves additional permissions.}
 \AccessSecrets{10}{We don't enforce MFA for developer access.}
 \AccessSecrets{J} {Our deployment artifacts contain secrets that can be extracted.}
 \AccessSecrets{Q} {Our Identity and Access Management is too complex.}
@@ -27,7 +27,7 @@
 \Delivery{7} {We don't know whether our dependencies introduce security issues (missing vulnerability scans).}
 \Delivery{8} {We use outdated dependencies of our runtime platform (OS, container image, serverless runtime).}
 \Delivery{9} {We use untrustworthy dependencies (unmaintained, used by too few people, developed by single developers, ...).}
-\Delivery{10}{We don't control the allowed ingress / egress when running CI pipelines.}
+\Delivery{10}{We don't limit ingress or egress when running CI pipelines.}
 \Delivery{J} {We don't know when someone injects code into our codebase.}
 \Delivery{Q} {We are not certain which code/artifacts we are deploying (source code integrity).}
 \Delivery{K} {We won't notice when a deployment is started from a developer account.}
@@ -42,7 +42,7 @@
 \Recovery{7} {We cannot restore our infrastructure to a previous state.}
 \Recovery{8} {We cannot restore our application to a previous state.}
 \Recovery{9} {We cannot restore our complete environment to a previous state.}
-\Recovery{10}{We don't create a backup before deleting important data.}
+\Recovery{10}{We don't create backups before deleting important data.}
 \Recovery{J} {All our backups can be destroyed at once, due to lack of redundancy.}
 \Recovery{Q} {We can't tell whether our backup has been modified.}
 \Recovery{K} {We can have the same person deleting resources and their backups.}
@@ -57,7 +57,7 @@
 \Monitoring{7} {We won't get an alert if an end user generates huge cloud bills for us.}
 \Monitoring{8} {We don't notice if an authenticated attacker/developer deactivates or manipulates our tools for traceability.}
 \Monitoring{9} {We don't know if an authenticated attacker/developer accessed the production environment.}
-\Monitoring{10}{We cannot react in time because our monitoring has blind spots.}
+\Monitoring{10}{We cannot react to problems in time because our monitoring has blind spots.}
 \Monitoring{J} {We need too long to figure out what an alert means.}
 \Monitoring{Q} {We do not know how to react when our monitoring sends alerts.}
 \Monitoring{K} {We can't access our logs if the production environment goes down.}
@@ -71,9 +71,9 @@
 \Resources{6} {We don't regularly check compliance with our policy for using/configuring cloud resources.}
 \Resources{7} {We have not configured any rate limits for our services.}
 \Resources{8} {We have no configured resource limits.}
-\Resources{9} {We don't prevent deploying applications with to many capabilities.}
-\Resources{10}{Our whole system can be disturbed by a single rogue service.}
+\Resources{9} {We can deploy applications with excessive capabilities.}
+\Resources{10}{Our whole system can be affected by a single rogue service.}
 \Resources{J} {We don't control ingress traffic.}
 \Resources{Q} {We don't control egress traffic.}
-\Resources{K} {Our cloud resources are publicly exposed although this is not needed.}
+\Resources{K} {Our cloud resources are publicly exposed without any need.}
 \Resources{A} {We have no clear policy for using/configuring cloud resources.}
