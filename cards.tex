@@ -4,7 +4,7 @@
 
 % 
 % Access & Secrets
-\AccessSecrets{2} {We grant permissions to 3rd parties (e.g. CI/CD systems), but do not review them regularly.}
+\AccessSecrets{2}{-}
 \AccessSecrets{3} {Our secrets are long-lived and can be reused when they get leaked.}
 \AccessSecrets{4} {We don't enforce strong passwords for cloud access, so brute-forcing is possible.}
 \AccessSecrets{5} {We (as developers) have access to technical credentials.}
@@ -65,15 +65,15 @@
 %
 % Resources
 \Resources{2} {-}
-\Resources{3} {We do not have an overview over the complete system landscape (including CI/CD, monitoring etc.)}
-\Resources{4} {We can't get contacted by our cloud provider in case of emergency.}
-\Resources{5} {We don't regularly check compliance with our policy for using/configuring cloud resources.}
-\Resources{6} {We have not configured any rate limits for our services.}
-\Resources{7} {We have no configured resource limits.}
-\Resources{8} {We don't prevent deploying applications with to many capabilities.}
-\Resources{9} {Our whole system can be disturbed by a single rogue service.}
-\Resources{10}{We don't control ingress traffic.}
-\Resources{J} {We don't control egress traffic.}
-\Resources{Q} {Our production environment is connected to staging, either directly or indirectly (e.g. via CI/CD).}
+\Resources{3} {-}
+\Resources{4} {-}
+\Resources{5} {We can't get contacted by our cloud provider in case of emergency.}
+\Resources{6} {We don't regularly check compliance with our policy for using/configuring cloud resources.}
+\Resources{7} {We have not configured any rate limits for our services.}
+\Resources{8} {We have no configured resource limits.}
+\Resources{9} {We don't prevent deploying applications with to many capabilities.}
+\Resources{10}{Our whole system can be disturbed by a single rogue service.}
+\Resources{J} {We don't control ingress traffic.}
+\Resources{Q} {We don't control egress traffic.}
 \Resources{K} {Our cloud resources are publicly exposed although this is not needed.}
 \Resources{A} {We have no clear policy for using/configuring cloud resources.}
