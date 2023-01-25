@@ -82,6 +82,6 @@ echo "Building version ${current_version}"
 clean_tmp_files
 write_version_file "${current_version}"
 compile "cumulus" single_pages.tex
-compile "cumulus-unified" all_cards_on_one_page.tex
-convert_pdf_to_jpg "tex/cumulus-unified.pdf" "tex/cumulus_cards.jpg"
+# compile "cumulus-unified" all_cards_on_one_page.tex
+# convert_pdf_to_jpg "tex/cumulus-unified.pdf" "tex/cumulus_cards.jpg"
 
