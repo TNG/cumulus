@@ -1,46 +1,30 @@
-% © 2022 TNG Technology Consulting
+% © 2022,2023 TNG Technology Consulting
 %
 % SPDX-License-Identifier: Apache-2.0
-
-% Categories
-\newcommand{\CategoryAccessSecrets}{access\,\&\,secrets}
-\newcommand{\CategoryDelivery}{delivery}
-\newcommand{\CategoryRecovery}{recovery}
-\newcommand{\CategoryMonitoring}{monitoring}
-\newcommand{\CategoryResources}{resources}
 %
-% Colors
-\definecolor{ColorAccessSecrets}{HTML}{EB5C4A}
-\definecolor{ColorDelivery}{HTML}{3CB7F0}
-\definecolor{ColorRecovery}{HTML}{0DB080}
-\definecolor{ColorMonitoring}{HTML}{F5A52B}
-\definecolor{ColorResources}{HTML}{A54FC2}
-\definecolor{ColorCardValues}{HTML}{FFFFFF}
-\definecolor{ColorCardValuesEmph}{HTML}{000000}
-
+% Categories
+\newcommand{\CategoryAccessSecrets}{access\,\&\,secrets}%
+\newcommand{\CategoryDelivery}{delivery}%
+\newcommand{\CategoryRecovery}{recovery}%
+\newcommand{\CategoryMonitoring}{monitoring}%
+\newcommand{\CategoryResources}{resources}%
+%
 %
 % Icons
-\newcommand{\IconAccessSecrets}{img/access_secrets.pdf}
-\newcommand{\IconDelivery}{img/delivery.pdf}
-\newcommand{\IconRecovery}{img/recovery.pdf}
-\newcommand{\IconMonitoring}{img/monitoring.pdf}
-\newcommand{\IconResources}{img/resources.pdf}
+\newcommand{\IconAccessSecrets}{img/access_secrets.pdf}%
+\newcommand{\IconDelivery}{img/delivery.pdf}%
+\newcommand{\IconRecovery}{img/recovery.pdf}%
+\newcommand{\IconMonitoring}{img/monitoring.pdf}%
+\newcommand{\IconResources}{img/resources.pdf}%
 %
+% TNG Logo
+\newcommand{\LogoAccessSecrets}{img/tng_access_secrets.pdf}%
+\newcommand{\LogoDelivery}{img/tng_delivery.pdf}%
+\newcommand{\LogoRecovery}{img/tng_recovery.pdf}%
+\newcommand{\LogoMonitoring}{img/tng_monitoring.pdf}%
+\newcommand{\LogoResources}{img/tng_resources.pdf}%
 %
-\newcommand{\emphasizeMatching}[3]{\ifthenelse{\equal{#1}{#2}}{\color{ColorCardValuesEmph}#3}{#3}}
-\newcommand{\cardValue}[3]{\small \color{ColorCardValues} \emphasizeMatching{#1}{#2}{#3}}
-%
-% Dimensions
-\pgfmathsetmacro{\cardroundingradius}{4mm}
-\pgfmathsetmacro{\striproundingradius}{0mm}
-\pgfmathsetmacro{\cardwidth}{7}
-\pgfmathsetmacro{\cardheight}{12.1}
-\pgfmathsetmacro{\textpadding}{0.75}
-%
-\newcommand{\stripfontsize}{\Huge}
-\newcommand{\textfontsize}{\Large}
-\newcommand{\category}[2]{\color{white} #1 \hspace{5mm} \rotatebox[origin=c]{-90}{#2\hspace{5mm}} \hspace{1mm}}
-%
+% Map card values to strings
 \newcommand{\valueasstring}[1]{%
   \ifthenelse{\equal{#1}{2}}{two}%
   {\ifthenelse{\equal{#1}{3}}{three}%
@@ -55,69 +39,88 @@
   {\ifthenelse{\equal{#1}{Q}}{queen}%
   {\ifthenelse{\equal{#1}{K}}{king}%
   {\ifthenelse{\equal{#1}{A}}{ace}%
-{}}}}}}}}}}}}}}
+{}}}}}}}}}}}}}}%
 %
+% Card background
+\newcommand{\Background}[2]{%
+  % Bounding box
+  \clip [rounded corners=0] (0, 0) rectangle ++(\cardwidth,\cardheight);%
+  % Background fill
+  \fill[fill=#1!80,rounded corners=0] (0,0) rectangle (2*\cardwidth,2*\cardheight);%
+  % Background number
+  \node[text width=\cardwidth, anchor=north] at (-3.0,1.2*\cardheight)%
+  {%
+    \rotatebox{45}{\resizebox{!}{10cm}{\Huge \textbf{\color{#1!55} #2}}}%
+  };%
+  % Outer bounding box
+  \draw[rounded corners=0] (0,0) rectangle (\cardwidth,\cardheight);%
+  % Inner bounding bo
+  \draw[rounded corners=\cardroundingradius] (0.04*\cardwidth,0.02*\cardheight) rectangle (0.96*\cardwidth,0.98*\cardheight);%
+}%
+%
+% Card category & values
+\newcommand{\CategoryValue}[3]{%
+  % Card value and icon
+  \node[text width=(0.1*\cardwidth)*1cm,below right,inner sep=0, align=center] at (0.1*\cardwidth,0.96*\cardheight)%
+  {% 
+    \resizebox{!}{1cm}{\valuefontsize\textbf{#1}}\\%
+    \includegraphics[width=1cm]{#3}
+  };%
+  % Card value string
+  \node[text width=(0.4*\cardwidth)*1cm,below right,inner sep=0, align=right] at (0.52*\cardwidth,0.96*\cardheight)%
+  {%
+    \resizebox{!}{0.2cm}{\tiny \valueasstring{#1}/#2}%
+  };%
+}%
+%
+% Card Text
+\newcommand{\CardText}[1]{%
+  \node[text centered, text width=(\cardwidth-2*\textpadding-\additionalpadding)*1cm,below right,inner sep=0] at (\textpadding+\additionalpadding,0.7*\cardheight)%
+  {% 
+    {\textfontsize #1}%
+  };%
+}%
+%
+% Card Summary
+\newcommand{\CardSummary}[2]{%
+  \ifthenelse{\boolean{doPrintSummary}}{%
+    \node[text width=(0.75*\cardheight)*1cm,below right,inner sep=0, align=left, rotate=90] at (0.075*\cardwidth, 0.05*\cardheight)%
+    {%
+      {\summaryfontsize \color{#2!25} #1}%
+    };%
+  }{}%
+}%
+%
+% Logo
+\newcommand{\Logo}[1]{%
+  \node[text width=(0.65*\cardwidth)*1cm,below right,inner sep=0, align=left] at (0.4*\cardwidth, 0.1*\cardheight)%
+  {%
+    \includegraphics[width=0.8\textwidth]{#1}%
+  };%
+  %
+}%
 %
 % Cards
-\newcommand{\GenericCard}[5]{
-    \ifthenelse{\boolean{doPrintEmptyCards} \or \not \equal{#5}{-}}
-    {
-      \vspace{-3cm}
-      \begin{tikzpicture}[every node/.style={inner sep=0,outer sep=0}]
-        % background
-        \fill[fill=#2!80,rounded corners=0] (0,0) rectangle (\cardwidth,\cardheight);
-        \node[text width=\cardwidth, anchor=north] at (-3.0,1.2*\cardheight) 
-          {   
-            \rotatebox{45}{\resizebox{!}{10cm}{\Huge \textbf{\color{#2!40} #4}}}\\
-          };
-        \draw[rounded corners=\cardroundingradius] (0.04*\cardwidth,0.02*\cardheight) rectangle (0.96*\cardwidth,0.98*\cardheight);
+\newcommand{\GenericCard}[7]{%
+    \ifthenelse{\boolean{doPrintEmptyCards} \or \not \equal{#6}{-}}%
+    {%
+      \begin{tikzpicture}%
         %
-        % card value
-        \node[text width=(\cardwidth-2*\textpadding)*1cm,below right,inner sep=0] at (0.1*\textwidth,0.96*\cardheight) 
-          {   
-            \resizebox{!}{1.3cm}{\Huge\textbf{#4}}\\
-            \includegraphics[width=0.18\textwidth]{#3}
-          };
-        \node[text width=(\cardwidth-2*\textpadding)*1cm,below right,inner sep=0] at (0.375*\textwidth,0.96*\cardheight) 
-          {   
-            \resizebox{!}{0.2cm}{\tiny \valueasstring{#4}/#1}\\
-          };
-        %
-        % text
-        \node[text width=(\cardwidth-2*\textpadding)*1cm,below right,inner sep=0, align=center] at (\textpadding,0.7*\cardheight) 
-          {   
-            {\textfontsize #5}\\
-          };
-        \node[text width=(0.3*\cardwidth)*1cm,below right,inner sep=0] at (\textpadding,0.45*\cardheight) 
-        {   
-          \cardValue{#4}{2}{\valueasstring{2}}\\
-          \cardValue{#4}{3}{\valueasstring{3}}\\
-          \cardValue{#4}{4}{\valueasstring{4}}\\
-          \cardValue{#4}{5}{\valueasstring{5}}\\
-          \cardValue{#4}{6}{\valueasstring{6}}\\
-          \cardValue{#4}{7}{\valueasstring{7}}\\
-          \cardValue{#4}{8}{\valueasstring{8}}\\
-          \cardValue{#4}{9}{\valueasstring{9}}\\
-          \cardValue{#4}{10}{\valueasstring{10}}\\
-          \cardValue{#4}{J}{\valueasstring{J}}\\
-          \cardValue{#4}{Q}{\valueasstring{Q}}\\
-          \cardValue{#4}{K}{\valueasstring{K}}\\
-          \cardValue{#4}{A}{\valueasstring{A}}
-        };
-        \node[text width=(0.3*\cardwidth)*1cm,below right,inner sep=0] at (0.26*\cardwidth,0.21*\cardheight) 
-        {   
-          \cardValue{#1}{\CategoryAccessSecrets}{\CategoryAccessSecrets}\\
-          \cardValue{#1}{\CategoryDelivery}{\CategoryDelivery}\\
-          \cardValue{#1}{\CategoryRecovery}{\CategoryRecovery}\\
-          \cardValue{#1}{\CategoryMonitoring}{\CategoryMonitoring}\\
-          \cardValue{#1}{\CategoryResources}{\CategoryResources}\\
-        };
-      \end{tikzpicture}
-    }
-    {}
-}
-\newcommand{\AccessSecrets}[2]{\GenericCard{\CategoryAccessSecrets}{ColorAccessSecrets}{\IconAccessSecrets}{#1}{#2}}
-\newcommand{\Delivery}[2]{\GenericCard{\CategoryDelivery}{ColorDelivery}{\IconDelivery}{#1}{#2}}
-\newcommand{\Recovery}[2]{\GenericCard{\CategoryRecovery}{ColorRecovery}{\IconRecovery}{#1}{#2}}
-\newcommand{\Monitoring}[2]{\GenericCard{\CategoryMonitoring}{ColorMonitoring}{\IconMonitoring}{#1}{#2}}
-\newcommand{\Resources}[2]{\GenericCard{\CategoryResources}{ColorResources}{\IconResources}{#1}{#2}}
+        % card background
+        \begin{scope}[xshift=0, yshift=0, local bounding box=scopeAinner]%
+          \clip [rounded corners=0] (0, 0) rectangle ++(\cardwidth,\cardheight);%
+          %
+          \Background{#2}{#5}%
+          \CategoryValue{#5}{#1}{#3}%
+          \CardText{#7}%
+          \CardSummary{#6}{#2}%
+          \Logo{#4}%
+        \end{scope}%
+      \end{tikzpicture}%
+    }{\hspace{-0.75mm}}%
+}%
+\newcommand{\AccessSecrets}[3]{\GenericCard{\CategoryAccessSecrets}{ColorAccessSecrets}{\IconAccessSecrets}{\LogoAccessSecrets}{#1}{#2}{#3}}%
+\newcommand{\Delivery}[3]{\GenericCard{\CategoryDelivery}{ColorDelivery}{\IconDelivery}{\LogoDelivery}{#1}{#2}{#3}}%
+\newcommand{\Recovery}[3]{\GenericCard{\CategoryRecovery}{ColorRecovery}{\IconRecovery}{\LogoRecovery}{#1}{#2}{#3}}%
+\newcommand{\Monitoring}[3]{\GenericCard{\CategoryMonitoring}{ColorMonitoring}{\IconMonitoring}{\LogoMonitoring}{#1}{#2}{#3}}%
+\newcommand{\Resources}[3]{\GenericCard{\CategoryResources}{ColorResources}{\IconResources}{\LogoResources}{#1}{#2}{#3}}%

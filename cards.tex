@@ -3,76 +3,76 @@
 % SPDX-License-Identifier: CC-BY-4.0
 % 
 % Access & Secrets
-\AccessSecrets{2} {We grant permissions to 3rd parties (e.g. CI/CD systems), but do not review them regularly.}
-\AccessSecrets{3} {Our secrets are long-lived and can be reused when they get leaked.}
-\AccessSecrets{4} {We don't enforce strong passwords for cloud access, so brute-forcing is possible.}
-\AccessSecrets{5} {We (as developers) have access to technical credentials.}
-\AccessSecrets{6} {We don't propagate changes in permissions quickly enough throughout the whole system.}
-\AccessSecrets{7} {We can't trace back whether authenticated users/developers granted themselves additional permissions.}
-\AccessSecrets{8} {We don't restrict permissions (developers, technical users) to the minimum, allowing for a privilege escalation.}
-\AccessSecrets{9} {Our Identity and Access Management lets authenticated users/developers grant themselves additional permissions.}
-\AccessSecrets{10}{We don't enforce MFA for developer access.}
-\AccessSecrets{J} {Our deployment artifacts contain secrets that can be extracted.}
-\AccessSecrets{Q} {Our Identity and Access Management is too complex.}
-\AccessSecrets{K} {We don't use an established solution for credential management.}
-\AccessSecrets{A} {Our source code contains secrets.}
+\AccessSecrets{2}{Missing access review}{We grant permissions to 3rd parties (e.g. CI/CD systems), but do not review them regularly.}
+\AccessSecrets{3}{Long-living secrets}{Our secrets are long-lived and can be reused when they get leaked.}
+\AccessSecrets{4}{No password policy}{We don't enforce strong passwords for cloud access, so brute-forcing is possible.}
+\AccessSecrets{5}{Access to credentials}{We (as developers) have access to technical credentials.}
+\AccessSecrets{6}{Slow credential rotation}{We don't propagate changes in permissions quickly enough throughout the whole system.}
+\AccessSecrets{7}{Repudiation}{We can't trace back whether authenticated users/developers granted themselves additional permissions.}
+\AccessSecrets{8}{No least privilege}{We don't restrict permissions (developers, technical users) to the minimum, allowing for a privilege escalation.}
+\AccessSecrets{9}{Privilege escalation}{Our Identity and Access Management lets authenticated users/developers grant themselves additional permissions.}
+\AccessSecrets{10}{No MFA}{We don't enforce MFA for developer access.}
+\AccessSecrets{J}{Secrets in artifacts}{Our deployment artifacts contain secrets that can be extracted.}
+\AccessSecrets{Q}{Complex IAM}{Our Identity and Access Management is too complex.}
+\AccessSecrets{K}{Poor secrets management}{We don't use an established solution for credential management.}
+\AccessSecrets{A}{Secrets in source code}{Our source code contains secrets.}
 %
 % Delivery
-\Delivery{2} {We don't know the versions of our dependencies or whether they are up to date.}
-\Delivery{3} {We include unneeded dependencies when deploying our system (test, build, compile-time dependencies).}
-\Delivery{4} {We don't know the source repository of our dependencies (dependency confusion).}
-\Delivery{5} {We don't know how a new version of a dependency changes our system (rogue dependencies).}
-\Delivery{6} {Our system can be re-deployed by a change in an external dependency.}
-\Delivery{7} {We don't know whether our dependencies introduce security issues (missing vulnerability scans).}
-\Delivery{8} {We use outdated dependencies of our runtime platform (OS, container image, serverless runtime).}
-\Delivery{9} {We use untrustworthy dependencies (unmaintained, used by too few people, developed by single developers, ...).}
-\Delivery{10}{We don't limit ingress or egress when running CI pipelines.}
-\Delivery{J} {We don't know when someone injects code into our codebase.}
-\Delivery{Q} {We are not certain which code/artifacts we are deploying (source code integrity).}
-\Delivery{K} {We won't notice when a deployment is started from a developer account.}
-\Delivery{A} {We won't notice when someone alters the deploy pipeline.}
+\Delivery{2}{No SBOM}{We don't know the versions of our dependencies or whether they are up to date.}
+\Delivery{3}{Bundled devDependencies}{We include unneeded dependencies when deploying our system (test, build, compile-time dependencies).}
+\Delivery{4}{Dependency confusion}{We don't know the source repository of our dependencies.}
+\Delivery{5}{Rogue dependencies}{We don't know how a new version of a dependency changes our system.}
+\Delivery{6}{Unattended updates}{Our system can be re-deployed by a change in an external dependency.}
+\Delivery{7}{Missing vulnerability scans}{We don't know whether our dependencies introduce security issues.}
+\Delivery{8}{Outdated dependencies}{We use outdated dependencies of our runtime platform (OS, container image, serverless runtime).}
+\Delivery{9}{Dubious dependencies}{We use untrustworthy dependencies (unmaintained, used by too few people, developed by single developers, ...).}
+\Delivery{10}{Missing network control}{We don't limit ingress or egress when running CI pipelines.}
+\Delivery{J}{Insufficient SCM}{We don't know when someone injects code into our codebase.}
+\Delivery{Q}{No source code integrity}{We are not certain which code/artifacts we are deploying.}
+\Delivery{K}{Silent pipeline runs}{We won't notice when a deployment is started from a developer account.}
+\Delivery{A}{Silent pipeline changes}{We won't notice when someone alters the deploy pipeline.}
 %
 % Recovery
-\Recovery{2} {-}
-\Recovery{3} {We have backups but do not check regularly whether we can restore them or not.}
-\Recovery{4} {We have no backups for our infrastructure (IaC and its state).}
-\Recovery{5} {We have no backups of our application data.}
-\Recovery{6} {We have no backups for our secrets.}
-\Recovery{7} {We cannot restore our infrastructure to a previous state.}
-\Recovery{8} {We cannot restore our application to a previous state.}
-\Recovery{9} {We cannot restore our complete environment to a previous state.}
-\Recovery{10}{We don't create backups before deleting important data.}
-\Recovery{J} {All our backups can be destroyed at once, due to lack of redundancy.}
-\Recovery{Q} {We can't tell whether our backup has been modified.}
-\Recovery{K} {We can have the same person deleting resources and their backups.}
-\Recovery{A} {We have no disaster recovery plan.}
+\Recovery{2}{-}{-}
+\Recovery{3}{No restore}{We have backups but do not check regularly whether we can restore them or not.}
+\Recovery{4}{No infrastructure backups}{We have no backups for our infrastructure (IaC and its state).}
+\Recovery{5}{No backups of data}{We have no backups of our application data.}
+\Recovery{6}{No backups of secrets}{We have no backups for our secrets.}
+\Recovery{7}{No infrastructure rollback}{We cannot restore our infrastructure to a previous state.}
+\Recovery{8}{No application rollback}{We cannot restore our application to a previous state.}
+\Recovery{9}{No system rollback}{We cannot restore our complete environment to a previous state.}
+\Recovery{10}{Unsafe data deletions}{We don't create backups before deleting important data.}
+\Recovery{J}{No backup redundancy}{All our backups can be destroyed at once, due to lack of redundancy.}
+\Recovery{Q}{Missing backup integrity}{We can't tell whether our backup has been modified.}
+\Recovery{K}{Broad delete permissions}{We can have the same person deleting resources and their backups.}
+\Recovery{A}{No disaster recovery plan}{We have no disaster recovery plan.}
 %
 % Monitoring
-\Monitoring{2} {-}
-\Monitoring{3} {-}
-\Monitoring{4} {-}
-\Monitoring{5} {-}
-\Monitoring{6} {We can't easily identify useful information in logs.}
-\Monitoring{7} {We won't get an alert if an end user generates huge cloud bills for us.}
-\Monitoring{8} {We don't notice if an authenticated attacker/developer deactivates or manipulates our tools for traceability.}
-\Monitoring{9} {We don't know if an authenticated attacker/developer accessed the production environment.}
-\Monitoring{10}{We cannot react to problems in time because our monitoring has blind spots.}
-\Monitoring{J} {We need too long to figure out what an alert means.}
-\Monitoring{Q} {We do not know how to react when our monitoring sends alerts.}
-\Monitoring{K} {We can't access our logs if the production environment goes down.}
-\Monitoring{A} {We write secrets/personal data to our logs.}
+\Monitoring{2}{-}{-}
+\Monitoring{3}{-}{-}
+\Monitoring{4}{-}{-}
+\Monitoring{5}{-}{-}
+\Monitoring{6}{Insufficient traceability}{We can't easily identify useful information in logs.}
+\Monitoring{7}{Missing cost alerting}{We won't get an alert if an end user generates huge cloud bills for us.}
+\Monitoring{8}{No log integrity}{We don't notice if an authenticated attacker/developer deactivates or manipulates our tools for traceability.}
+\Monitoring{9}{No audits for prod access}{We don't know if an authenticated attacker/developer accessed the production environment.}
+\Monitoring{10}{Insufficient monitoring}{We cannot react to problems in time because our monitoring has blind spots.}
+\Monitoring{J}{Unclear alerts}{We need too long to figure out what an alert means.}
+\Monitoring{Q}{No incident response plan}{We do not know how to react when our monitoring sends alerts.}
+\Monitoring{K}{Inaccessible logs}{We can't access our logs if the production environment goes down.}
+\Monitoring{A}{Secrets in logs}{We write secrets/personal data to our logs.}
 %
 % Resources
-\Resources{2} {-}
-\Resources{3} {-}
-\Resources{4} {We can't get contacted by our cloud provider in case of emergency.}
-\Resources{5} {We don't regularly check compliance with our policy for using/configuring cloud resources.}
-\Resources{6} {We have not configured any rate limits for our services.}
-\Resources{7} {We have no configured resource limits.}
-\Resources{8} {We can deploy applications with excessive capabilities.}
-\Resources{9} {Our whole system can be affected by a single rogue service.}
-\Resources{10}{We don't control ingress traffic.}
-\Resources{J} {We don't control egress traffic.}
-\Resources{Q} {Our production and staging environments connected, either directly or indirectly (e.g. via CI/CD).}
-\Resources{K} {Our cloud resources are publicly exposed without any need.}
-\Resources{A} {We have no clear policy for using/configuring cloud resources.}
+\Resources{2}{-}{-}
+\Resources{3}{-}{-}
+\Resources{4}{Unreachable contact details}{We can't get contacted by our cloud provider in case of emergency.}
+\Resources{5}{Non-compliance}{We don't regularly check compliance with our internal policy for using/configuring cloud resources.}
+\Resources{6}{Missing rate limits}{We have not configured any rate limits for our services.}
+\Resources{7}{Missing resource limits}{We have no configured resource limits.}
+\Resources{8}{Excessive capabilities}{We can deploy applications with excessive capabilities.}
+\Resources{9}{Single point of failure}{Our whole system can be affected by a single rogue service.}
+\Resources{10}{Missing ingress control}{We don't control ingress traffic.}
+\Resources{J}{Missing egress control}{We don't control egress traffic.}
+\Resources{Q}{Missing env separation}{Our production and staging are environments connected, either directly or indirectly (e.g. via CI/CD).}
+\Resources{K}{Public resources}{Our cloud resources are publicly exposed without any need.}
+\Resources{A}{No cloud policy}{We have no clear policy for using/configuring cloud resources.}
