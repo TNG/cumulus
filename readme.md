@@ -24,7 +24,7 @@ The winner then receives a point, starts a new round and chooses the new suit.
 Each time a new card is played, all players are asked to think about whether that particular threat applies to their system in some form.
 If a threat is found (and the team agress that this is a topic to look at), it is written down and the finder receives an extra point.
 
-## Acknowledgementse
+## Acknowledgements
 
 The original and wonderful idea conducting threat modeling via serious games goes back to [Adam Shostack](https://github.com/adamshostack), working for Microsoft at that time.
 He invented the game [Elevation of privilege](https://shostack.org/games/elevation-of-privilege) which is the blue print for Cumulus.
