@@ -1,20 +1,66 @@
-% © 2022 TNG Technology Consulting
+% © 2022,2023 TNG Technology Consulting
 %
 % SPDX-License-Identifier: Apache-2.0
-
-\hspace{0.1\textheight}
-\section*{Cumulus}
-\makeatletter\@input{version.tex}
-
-Threat Modeling the Cloud.
-
-\vspace*{0.2\textheight}
-\hspace*{\fill}
-\includegraphics[width=0.8\textwidth]{img/tng.pdf}
-
-\vfill
-\hspace*{\fill}
-\includegraphics[width=0.25\textwidth]{img/cc-by.pdf}
-\begin{tiny}
-  licensed under \href{https://creativecommons.org/licenses/by/4.0/}{CC-BY-4.0}
-\end{tiny}
+%
+% Background
+\newcommand{\CoverBackground}{%
+  % Background fill
+  \fill[fill=ColorTNG!80,rounded corners=0] (0,0) rectangle (1*\cardwidth,1*\cardheight);%
+  % Background number
+  \node[text width=\cardwidth, anchor=north] at (-3.0,1.2*\cardheight)%
+  {%
+  \rotatebox{45}{\resizebox{!}{10cm}{\Huge \textbf{\color{ColorTNG!55} C}}}%
+  };%
+}%
+%
+% TNG Logo
+\newcommand{\CoverLogo}{%
+  \node[text width=(0.7*\cardwidth)*1cm,below right,inner sep=0, align=left] at (0.25*\cardwidth, 0.97*\cardheight)%
+  {%
+    \includegraphics[width=0.8\textwidth]{img/tng_cover.pdf}%
+  };%
+}%
+%
+% Title
+\newcommand{\CoverTitle}{%
+  \node[text centered, text width=(\cardwidth)*1cm,below right,inner sep=0] at (0,0.7*\cardheight)%
+  {% 
+    \resizebox{!}{1cm}{\Huge cumulus}%
+  };%
+  \node[text centered, text width=(\cardwidth)*1cm,below right,inner sep=0] at (0,0.55*\cardheight)%
+  {% 
+    {\huge threat modeling the clouds}%
+  };%
+}%
+%
+% Version
+\newcommand{\CoverVersion}{%
+  % \node[text centered, text width=(\cardwidth)*1cm,below right,inner sep=0] at (0,0.3*\cardheight)%
+  % {% 
+  %   {\small \makeatletter\input{version.tex}}%
+  % };%
+  \node[text width=(0.75*\cardheight)*1cm,below right,inner sep=0, align=left, rotate=90] at (0.075*\cardwidth, 0.05*\cardheight)%
+    {%
+      {\large \color{ColorTNG!25} \makeatletter\input{version.tex}}%
+    };%
+}%
+%
+% CC Licensing
+\newcommand{\CoverLicense}{%
+  \node[text width=(0.7*\cardwidth)*1cm,below right,inner sep=0, align=left] at (0.25*\cardwidth, 0.1*\cardheight)%
+  {%
+    \includegraphics[width=0.8\textwidth]{img/cc-by.pdf}%
+  };%
+}%
+%
+\begin{tikzpicture}%
+  \begin{scope}[xshift=0, yshift=0, local bounding box=scopeAinner]%
+    \clip [rounded corners=0] (0, 0) rectangle ++(\cardwidth,\cardheight);%
+    %
+    \CoverBackground
+    \CoverTitle
+    \CoverVersion
+    \CoverLogo
+    \CoverLicense
+  \end{scope}%
+\end{tikzpicture}\\%

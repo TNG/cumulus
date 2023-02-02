@@ -9,7 +9,6 @@
 \newcommand{\CategoryMonitoring}{monitoring}%
 \newcommand{\CategoryResources}{resources}%
 %
-%
 % Icons
 \newcommand{\IconAccessSecrets}{img/access_secrets.pdf}%
 \newcommand{\IconDelivery}{img/delivery.pdf}%
@@ -23,6 +22,7 @@
 \newcommand{\LogoRecovery}{img/tng_recovery.pdf}%
 \newcommand{\LogoMonitoring}{img/tng_monitoring.pdf}%
 \newcommand{\LogoResources}{img/tng_resources.pdf}%
+\newcommand{\LogoBlack}{img/tng_black.pdf}%
 %
 % Map card values to strings
 \newcommand{\valueasstring}[1]{%
@@ -43,8 +43,6 @@
 %
 % Card background
 \newcommand{\Background}[2]{%
-  % Bounding box
-  \clip [rounded corners=0] (0, 0) rectangle ++(\cardwidth,\cardheight);%
   % Background fill
   \fill[fill=#1!80,rounded corners=0] (0,0) rectangle (2*\cardwidth,2*\cardheight);%
   % Background number
@@ -54,7 +52,7 @@
   };%
   % Outer bounding box
   \draw[rounded corners=0] (0,0) rectangle (\cardwidth,\cardheight);%
-  % Inner bounding bo
+  % Inner bounding box
   \draw[rounded corners=\cardroundingradius] (0.04*\cardwidth,0.02*\cardheight) rectangle (0.96*\cardwidth,0.98*\cardheight);%
 }%
 %
@@ -95,9 +93,12 @@
 \newcommand{\Logo}[1]{%
   \node[text width=(0.65*\cardwidth)*1cm,below right,inner sep=0, align=left] at (0.4*\cardwidth, 0.1*\cardheight)%
   {%
-    \includegraphics[width=0.8\textwidth]{#1}%
+    \ifthenelse{\boolean{doPrintLogoInColor}}{%   
+      \includegraphics[width=0.8\textwidth]{#1}%
+    }{%
+      \includegraphics[width=0.8\textwidth]{\LogoBlack}%
+    }%
   };%
-  %
 }%
 %
 % Cards
@@ -105,8 +106,6 @@
     \ifthenelse{\boolean{doPrintEmptyCards} \or \not \equal{#6}{-}}%
     {%
       \begin{tikzpicture}%
-        %
-        % card background
         \begin{scope}[xshift=0, yshift=0, local bounding box=scopeAinner]%
           \clip [rounded corners=0] (0, 0) rectangle ++(\cardwidth,\cardheight);%
           %

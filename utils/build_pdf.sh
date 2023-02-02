@@ -48,6 +48,40 @@ function compile() {
       "${container_work_dir}/tex/${tex_file}" 
 }
 
+function cut_pdf_pages() {
+  local file_name="${1}"
+  local pages_to_keep="${2}"
+  
+  local repo_base_dir
+  local container_work_dir
+  local container_image
+  repo_base_dir="$(git rev-parse --show-toplevel)"
+  container_work_dir="/work"
+  container_image="pdftk/pdftk:latest"
+
+  docker run \
+    --rm \
+    -t \
+    --user="$(id -u):$(id -g)" \
+    --net=none \
+    -v "${repo_base_dir}:${container_work_dir}" \
+    "${container_image}" \
+      "${file_name}" \
+      cat "${pages_to_keep}" \
+      output "${file_name}.tmp"
+
+  mv "${file_name}.tmp" "${file_name}"
+}
+
+function compile_and_cut() {
+  local pdf_base_name="${1}"
+  local tex_file="${2}"
+  local pages_to_keep="${3}"
+
+  compile "${pdf_base_name}" "${tex_file}" && \
+  cut_pdf_pages "tex/${pdf_base_name}.pdf" "${pages_to_keep}"
+}
+
 function convert_pdf_to_jpg() {
   local pdf_file="${1}"
   local jpg_file="${2}"
@@ -81,7 +115,7 @@ echo "Building version ${current_version}"
 
 clean_tmp_files
 write_version_file "${current_version}"
-compile "cumulus" single_pages.tex
-# compile "cumulus-unified" all_cards_on_one_page.tex
-# convert_pdf_to_jpg "tex/cumulus-unified.pdf" "tex/cumulus_cards.jpg"
+compile_and_cut "cumulus" single_pages.tex "2-end"
+compile "cumulus_printer-friendly" printer_friendly.tex
+compile "cumulus-unified" all_cards_on_one_page.tex && convert_pdf_to_jpg "tex/cumulus-unified.pdf" "tex/cumulus_cards.jpg"
 
