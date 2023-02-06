@@ -1,3 +1,7 @@
+# © 2022,2023 TNG Technology Consulting
+#
+# SPDX-License-Identifier: CC0-1.0
+
 *.aux
 *.fdb_latexmk
 *.fls
