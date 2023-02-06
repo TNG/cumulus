@@ -34,7 +34,7 @@ Threats are classified into the categories (which are also the suits in this gam
 This game does explicitly **not** try to replace Elevation of Privilege or Cornucopia.
 It should rather be seen as part of a triplet of threat modeling card decks, reflecting different aspects of modern software development projects.
 
-## Rules on the game
+## Rules of the game
 Cumulus ist trick-taking card game, similar to spades.
 
 The objective is to collect as many points as possible, either by taking a trick or by finding threats.
