@@ -1,0 +1,36 @@
+% © 2022,2023 TNG Technology Consulting
+%
+% SPDX-License-Identifier: Apache-2.0
+%
+\newcommand{\Category}[4]{%
+  % Card value and icon
+  \node[text width=(\cardwidth-2*\textpadding)*1cm,below right,inner sep=0, align=left] at (0.1*\cardwidth,#1*\cardheight)%
+  {% 
+    \includegraphics[width=1cm]{#2}
+  };%
+  \node[text width=(\cardwidth-2*\textpadding)*1cm,below right,inner sep=0, align=left] at (0.3*\cardwidth,#1*\cardheight-0.03*\cardheight)%
+  {% 
+    {\textfontsize{\textbf{#3}}}
+  };%
+  \node[text width=(\cardwidth-2*\textpadding)*1cm,below right,inner sep=0, align=right] at (0.1*\cardwidth,#1*\cardheight-0.08*\cardheight)%
+  {% 
+    {\detailsfontsize{#4}}
+  };%
+}%
+%
+\begin{tikzpicture}%
+  \begin{scope}[xshift=0, yshift=0, local bounding box=scopeAinner]%
+    \clip [rounded corners=0] (0, 0) rectangle ++(\cardwidth,\cardheight);%
+    %
+    \Frame
+    \Category{0.96}{\IconAccessSecrets}{\CategoryAccessSecrets}{Threats related to IAM and secrets management}
+    \Category{0.75}{\IconDelivery}{\CategoryDelivery}{Build and ship software, and its supply chain}
+    \Category{0.55}{\IconRecovery}{\CategoryRecovery}{Backup and restore}
+    \Category{0.375}{\IconMonitoring}{\CategoryMonitoring}{Logs, alerts and traceability}
+    \Category{0.2}{\IconResources}{\CategoryResources}{Threats to resources and their configuration}
+    % \CoverTitle
+    % \CoverVersion
+    % \CoverLogo
+    % \CoverLicense
+  \end{scope}%
+\end{tikzpicture}\\%

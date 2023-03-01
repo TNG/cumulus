@@ -41,6 +41,14 @@
   {\ifthenelse{\equal{#1}{A}}{ace}%
 {}}}}}}}}}}}}}}%
 %
+%
+\newcommand{\Frame}{%
+  % Outer bounding box
+  \draw[rounded corners=0] (0,0) rectangle (\cardwidth,\cardheight);%
+  % Inner bounding box
+  \draw[rounded corners=\cardroundingradius] (0.04*\cardwidth,0.02*\cardheight) rectangle (0.96*\cardwidth,0.98*\cardheight);%
+}%
+%
 % Card background
 \newcommand{\Background}[2]{%
   % Background fill
@@ -50,10 +58,7 @@
   {%
     \rotatebox{45}{\resizebox{!}{10cm}{\Huge \textbf{\color{#1!55} #2}}}%
   };%
-  % Outer bounding box
-  \draw[rounded corners=0] (0,0) rectangle (\cardwidth,\cardheight);%
-  % Inner bounding box
-  \draw[rounded corners=\cardroundingradius] (0.04*\cardwidth,0.02*\cardheight) rectangle (0.96*\cardwidth,0.98*\cardheight);%
+  \Frame
 }%
 %
 % Card category & values
