@@ -4,7 +4,7 @@
 SPDX-License-Identifier: CC-BY-4.0
 -->
 
-# Cumulus - *Threat modeling the clouds*[<img style="height:50px;cursor:pointer;float:right" src="docs/img/download.svg"/>](https://github.com/TNG/cumulus/releases/latest)
+# OWASP Cumulus - *Threat modeling the clouds*[<img style="height:50px;cursor:pointer;float:right" src="docs/img/download.svg"/>](https://github.com/TNG/cumulus/releases/latest)
 
 ![Cumulus Cards](docs/img/cards.svg)
   
