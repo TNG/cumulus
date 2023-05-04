@@ -4,7 +4,7 @@
 SPDX-License-Identifier: CC-BY-4.0
 -->
 
-# OWASP Cumulus - *Threat modeling the clouds*[<img style="height:50px;cursor:pointer;float:right" src="docs/img/download.svg"/>](https://github.com/TNG/cumulus/releases/latest)
+# OWASP Cumulus - *Threat modeling the clouds*[<img style="height:50px;cursor:pointer;float:right" src="docs/img/download.svg"/>](https://github.com/OWASP/cumulus/releases/latest)
 
 ![Cumulus Cards](docs/img/cards.svg)
   
@@ -13,7 +13,7 @@ Cumulus is the easy way to bring security into cloud and devOps teams.
 As a variant of the card game Elevation of Privilege it follows the idea to threat model a system via gamification.
 This lightweight and low-barrier approach helps you find threats to your devOps or cloud project and teaches the developers a security oriented mindset.
 
-Find the latest release [here](https://github.com/TNG/cumulus/releases/latest).
+Find the latest release [here](https://github.com/OWASP/cumulus/releases/latest).
 
 ## Threat Modeling 
 The idea of threat modeling via serious games goes back to the card game [Elevation of Privilege](https://shostack.org/games/elevation-of-privilege) by [Adam Shostack](https://github.com/adamshostack).
@@ -80,7 +80,7 @@ You can find it under:
 Contributions to the card deck are very much appreciated.
 In the end, this card deck is intended to be a community project.
 
-Changes to the threat formulations are welcome as pull requests to [cards.tex](https://github.com/TNG/cumulus/blob/main/cards.tex).
+Changes to the threat formulations are welcome as pull requests to [cards.tex](https://github.com/OWASP/cumulus/blob/main/cards.tex).
   
  ## Versioning 
 The card deck follows [semantic versioning](https://semver.org/).
