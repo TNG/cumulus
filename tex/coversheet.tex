@@ -5,19 +5,19 @@
 % Background
 \newcommand{\CoverBackground}{%
   % Background fill
-  \fill[fill=ColorTNG!80,rounded corners=0] (0,0) rectangle (1*\cardwidth,1*\cardheight);%
+  \fill[fill=ColorCoverLogo!80,rounded corners=0] (0,0) rectangle (1*\cardwidth,1*\cardheight);%
   % Background number
   \node[text width=\cardwidth, anchor=north] at (-3.0,1.2*\cardheight)%
   {%
-  \rotatebox{45}{\resizebox{!}{10cm}{\Huge \textbf{\color{ColorTNG!55} C}}}%
+  \rotatebox{45}{\resizebox{!}{10cm}{\Huge \textbf{\color{ColorCoverLogo!55} C}}}%
   };%
 }%
 %
-% TNG Logo
+% Cover Logo
 \newcommand{\CoverLogo}{%
   \node[text width=(0.7*\cardwidth)*1cm,below right,inner sep=0, align=left] at (0.25*\cardwidth, 0.97*\cardheight)%
   {%
-    \includegraphics[width=0.8\textwidth]{img/tng_cover.pdf}%
+    \includegraphics[width=0.8\textwidth]{img/cover_logo.pdf}%
   };%
 }%
 %
@@ -41,7 +41,7 @@
   % };%
   \node[text width=(0.75*\cardheight)*1cm,below right,inner sep=0, align=left, rotate=90] at (0.075*\cardwidth, 0.05*\cardheight)%
     {%
-      {\large \color{ColorTNG!25} \makeatletter\input{version.tex}}%
+      {\large \color{ColorCoverLogo!25} \makeatletter\input{version.tex}}%
     };%
 }%
 %
