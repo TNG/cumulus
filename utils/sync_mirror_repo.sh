@@ -8,6 +8,7 @@ FILES_NOT_IN_SYNC=(
   "readme.md"
   "tex/lib/logo.tex"
   "tex/img/cover_logo.pdf"
+  "docs/img/cards.svg"
 )
 
 
