@@ -37,6 +37,8 @@ commit_and_push_changes() {
 sync_mirror_repo() {
   git checkout "${MAIN_BRANCH}"
 
+  git fetch --all
+  git pull --rebase origin "${MAIN_BRANCH}"
   git merge --strategy-option=theirs "${MIRROR_REMOTE}/${MAIN_BRANCH}"
   for src_file in "${FILES_NOT_IN_SYNC[@]}"
   do
