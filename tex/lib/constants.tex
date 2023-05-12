@@ -4,9 +4,13 @@
 %
 %
 % Dimensions
-\pgfmathsetmacro{\cardroundingradius}{4mm}%
+\pgfmathsetmacro{\cardroundingradius}{2.3mm}%
+\pgfmathsetmacro{\bleed}{0.3}%
+\pgfmathsetmacro{\internalpadding}{0.4}%
 \pgfmathsetmacro{\cardwidth}{7}%
 \pgfmathsetmacro{\cardheight}{12}%
+\pgfmathsetmacro{\cardwidthPrint}{\cardwidth+2*\bleed}%
+\pgfmathsetmacro{\cardheightPrint}{\cardheight+2*\bleed}%
 \pgfmathsetmacro{\textpadding}{0.75}%
 \pgfmathsetmacro{\textpadding}{0.75}%
 \pgfmathsetmacro{\additionalpadding}{0.75}%

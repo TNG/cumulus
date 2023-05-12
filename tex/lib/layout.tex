@@ -45,18 +45,16 @@
 %
 %
 \newcommand{\Frame}{%
-  % Outer bounding box
-  \draw[rounded corners=0] (0,0) rectangle (\cardwidth,\cardheight);%
   % Inner bounding box
-  \draw[rounded corners=\cardroundingradius] (0.04*\cardwidth,0.02*\cardheight) rectangle (0.96*\cardwidth,0.98*\cardheight);%
-}%
+  \draw[rounded corners=\cardroundingradius] (\bleed+\internalpadding,\bleed+\internalpadding) rectangle (\cardwidth-\internalpadding+\bleed,\cardheight-\internalpadding+\bleed);%
+  }%
 %
 % Card background
 \newcommand{\Background}[2]{%
   % Background fill
   \fill[fill=#1!80,rounded corners=0] (0,0) rectangle (2*\cardwidth,2*\cardheight);%
   % Background number
-  \node[text width=\cardwidth, anchor=north] at (-3.0,1.2*\cardheight)%
+  \node[text width=\cardwidth, anchor=north] at (-3.0+\bleed,1.2*\cardheight+\bleed)%
   {%
     \rotatebox{45}{\resizebox{!}{10cm}{\Huge \textbf{\color{#1!55} #2}}}%
   };%
@@ -66,13 +64,13 @@
 % Card category & values
 \newcommand{\CategoryValue}[3]{%
   % Card value and icon
-  \node[text width=(0.1*\cardwidth)*1cm,below right,inner sep=0, align=center] at (0.1*\cardwidth,0.96*\cardheight)%
+  \node[text width=(0.1*\cardwidth)*1cm,below right,inner sep=0, align=center] at (0.1*\cardwidth+\bleed,0.95*\cardheight+\bleed)%
   {% 
     \resizebox{!}{1cm}{\valuefontsize\textbf{#1}}\\%
     \includegraphics[width=1cm]{#3}
   };%
   % Card value string
-  \node[text width=(0.4*\cardwidth)*1cm,below right,inner sep=0, align=right] at (0.52*\cardwidth,0.96*\cardheight)%
+  \node[text width=(0.4*\cardwidth)*1cm,below right,inner sep=0, align=right] at (0.5*\cardwidth+\bleed,0.95*\cardheight+\bleed)%
   {%
     \resizebox{!}{0.2cm}{\tiny \valueasstring{#1}/#2}%
   };%
@@ -80,7 +78,7 @@
 %
 % Card Text
 \newcommand{\CardText}[1]{%
-  \node[text centered, text width=(\cardwidth-2*\textpadding-\additionalpadding)*1cm,below right,inner sep=0] at (\textpadding+\additionalpadding,0.7*\cardheight)%
+  \node[text centered, text width=(\cardwidth-2*\textpadding-\additionalpadding)*1cm,below right,inner sep=0] at (\textpadding+\additionalpadding+\bleed,0.7*\cardheight+\bleed)%
   {% 
     {\textfontsize #1}%
   };%
@@ -89,7 +87,7 @@
 % Card Summary
 \newcommand{\CardSummary}[2]{%
   \ifthenelse{\boolean{doPrintSummary}}{%
-    \node[text width=(0.75*\cardheight)*1cm,below right,inner sep=0, align=left, rotate=90] at (0.075*\cardwidth, 0.05*\cardheight)%
+    \node[text width=(0.75*\cardheight)*1cm,below right,inner sep=0, align=left, rotate=90] at (0.09*\cardwidth+\bleed, 0.065*\cardheight+\bleed)%
     {%
       {\summaryfontsize \color{#2!25} #1}%
     };%
@@ -102,7 +100,7 @@
     {%
       \begin{tikzpicture}%
         \begin{scope}[xshift=0, yshift=0, local bounding box=scopeAinner]%
-          \clip [rounded corners=0] (0, 0) rectangle ++(\cardwidth,\cardheight);%
+          \clip [rounded corners=0] (0, 0) rectangle ++(\cardwidthPrint,\cardheightPrint);%
           %
           \Background{#2}{#5}%
           \CategoryValue{#5}{#1}{#3}%
