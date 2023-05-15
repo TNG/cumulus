@@ -52,7 +52,7 @@
 % Card background
 \newcommand{\Background}[2]{%
   % Background fill
-  \fill[fill=#1!80,rounded corners=0] (0,0) rectangle (2*\cardwidth,2*\cardheight);%
+  \fill[fill=#1!80,rounded corners=0] (0,0) rectangle (\cardwidthPrint,\cardheightPrint);%
   % Background number
   \node[text width=\cardwidth, anchor=north] at (-3.0+\bleed,1.2*\cardheight+\bleed)%
   {%

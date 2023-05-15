@@ -1,0 +1,57 @@
+% © 2023 TNG Technology Consulting
+%
+% SPDX-License-Identifier: Apache-2.0
+%
+\documentclass[parskip]{scrartcl}%
+\usepackage[paperheight=126mm,paperwidth=76mm,top=1.76mm,left=0mm]{geometry}%
+\input{lib/imports.tex}%
+\input{lib/constants.tex}%
+%
+% Background
+\newcommand{\Background}{%
+  % Background fill
+  \fill[fill=ColorBack!80,rounded corners=0] (0,0) rectangle (2*\cardwidth,2*\cardheight);%
+}%
+%
+\newcommand{\Frame}{%
+  % Inner bounding box
+  \draw[white, rounded corners=\cardroundingradius] (\bleed+\internalpadding,\bleed+\internalpadding) rectangle (\cardwidth-\internalpadding+\bleed,\cardheight-\internalpadding+\bleed);%
+  }%
+%
+%
+\newcommand{\TNGLogo}{%
+  \node[text width=(\cardwidth-2*\textpadding)*1cm,below right,inner sep=0, align=left] at (0.15*\cardwidth+\bleed,0.93*\cardheight+\bleed)%
+  {% 
+    \includegraphics[width=.9\textwidth]{img/tng/tng_logo_white.pdf}
+  };%
+}%
+%
+\newcommand{\OWASPLogo}{%
+  \node[text width=(\cardwidth-2*\textpadding)*1cm,below right,inner sep=0, align=left] at (0.15*\cardwidth+\bleed,0.18*\cardheight+\bleed)%
+  {% 
+    \includegraphics[width=0.9\textwidth]{img/tng/owasp_logo_white.pdf}
+  };%
+}%
+%
+\begin{document}%
+$ $\\%
+%
+  \begin{tikzpicture}%
+    \begin{scope}[xshift=0, yshift=0, local bounding box=scopeAinner]%
+      \clip [rounded corners=0] (0, 0) rectangle ++(\cardwidthPrint,\cardheightPrint);%
+      %
+      \Background
+      % \Frame
+      % \TNGLogo
+      % \OWASPLogo
+      % \node[text centered, text width=(\cardwidth-2*\textpadding)*1cm,below right,inner sep=0] at (\textpadding+\bleed,0.7*\cardheight)%
+      % {% 
+      %  \resizebox{!}{1cm}{\Huge \color{white} cumulus}%
+      % };%
+      % \node[text centered, text width=(\cardwidth-2*\textpadding)*1cm,below right,inner sep=0] at (\textpadding+\bleed,0.55*\cardheight)%
+      % {% 
+      % \huge{\color{white} threat modeling the clouds}
+      % };%
+    \end{scope}%
+  \end{tikzpicture}\\%
+\end{document}%
