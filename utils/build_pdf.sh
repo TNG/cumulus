@@ -116,7 +116,8 @@ echo "Building version ${current_version}"
 clean_tmp_files
 write_version_file "${current_version}"
 compile_and_cut "cumulus" single_pages.tex "2-end"
+compile_and_cut "cumulus_CMYK" single_pages_CMYK.tex "2-end"
 compile_and_cut "back" back.tex "2-2"
-# compile "cumulus_printer-friendly" printer_friendly.tex
-# compile "cumulus_unified" all_cards_on_one_page.tex && convert_pdf_to_jpg "tex/cumulus_unified.pdf" "tex/cumulus_cards.jpg"
+compile "cumulus_printer-friendly" printer_friendly.tex
+compile "cumulus_unified" all_cards_on_one_page.tex && convert_pdf_to_jpg "tex/cumulus_unified.pdf" "tex/cumulus_cards.jpg"
 

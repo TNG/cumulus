@@ -50,13 +50,13 @@
   }%
 %
 % Card background
-\newcommand{\Background}[2]{%
+\newcommand{\Background}[3]{%
   % Background fill
-  \fill[fill=#1!80,rounded corners=0] (0,0) rectangle (\cardwidthPrint,\cardheightPrint);%
+  \fill[fill=#1,rounded corners=0] (0,0) rectangle (\cardwidthPrint,\cardheightPrint);%
   % Background number
   \node[text width=\cardwidth, anchor=north] at (-3.0+\bleed,1.2*\cardheight+\bleed)%
   {%
-    \rotatebox{45}{\resizebox{!}{10cm}{\Huge \textbf{\color{#1!55} #2}}}%
+    \rotatebox{45}{\resizebox{!}{10cm}{\Huge \textbf{\color{#2} #3}}}%
   };%
   \Frame
 }%
@@ -89,30 +89,30 @@
   \ifthenelse{\boolean{doPrintSummary}}{%
     \node[text width=(0.75*\cardheight)*1cm,below right,inner sep=0, align=left, rotate=90] at (0.09*\cardwidth+\bleed, 0.065*\cardheight+\bleed)%
     {%
-      {\summaryfontsize \color{#2!25} #1}%
+      {\summaryfontsize \color{#2} #1}%
     };%
   }{}%
 }%
 %
 % Cards
-\newcommand{\GenericCard}[7]{%
-    \ifthenelse{\boolean{doPrintEmptyCards} \or \not \equal{#6}{-}}%
+\newcommand{\GenericCard}[9]{%
+    \ifthenelse{\boolean{doPrintEmptyCards} \or \not \equal{#8}{-}}%
     {%
       \begin{tikzpicture}%
         \begin{scope}[xshift=0, yshift=0, local bounding box=scopeAinner]%
           \clip [rounded corners=0] (0, 0) rectangle ++(\cardwidthPrint,\cardheightPrint);%
           %
-          \Background{#2}{#5}%
-          \CategoryValue{#5}{#1}{#3}%
-          \CardText{#7}%
-          \CardSummary{#6}{#2}%
-          \Logo{#4}%
+          \Background{#2}{#3}{#7}%
+          \CategoryValue{#7}{#1}{#5}%
+          \CardText{#9}%
+          \CardSummary{#8}{#4}%
+          \Logo{#6}%
         \end{scope}%
       \end{tikzpicture}%
     }{\hspace{-0.75mm}}%
 }%
-\newcommand{\AccessSecrets}[3]{\GenericCard{\CategoryAccessSecrets}{ColorAccessSecrets}{\IconAccessSecrets}{\LogoAccessSecrets}{#1}{#2}{#3}}%
-\newcommand{\Delivery}[3]{\GenericCard{\CategoryDelivery}{ColorDelivery}{\IconDelivery}{\LogoDelivery}{#1}{#2}{#3}}%
-\newcommand{\Recovery}[3]{\GenericCard{\CategoryRecovery}{ColorRecovery}{\IconRecovery}{\LogoRecovery}{#1}{#2}{#3}}%
-\newcommand{\Monitoring}[3]{\GenericCard{\CategoryMonitoring}{ColorMonitoring}{\IconMonitoring}{\LogoMonitoring}{#1}{#2}{#3}}%
-\newcommand{\Resources}[3]{\GenericCard{\CategoryResources}{ColorResources}{\IconResources}{\LogoResources}{#1}{#2}{#3}}%
+\newcommand{\AccessSecrets}[3]{\GenericCard{\CategoryAccessSecrets}{ColorAccessSecrets1}{ColorAccessSecrets2}{ColorAccessSecrets3}{\IconAccessSecrets}{\LogoAccessSecrets}{#1}{#2}{#3}}%
+\newcommand{\Delivery}[3]{\GenericCard{\CategoryDelivery}{ColorDelivery1}{ColorDelivery2}{ColorDelivery3}{\IconDelivery}{\LogoDelivery}{#1}{#2}{#3}}%
+\newcommand{\Recovery}[3]{\GenericCard{\CategoryRecovery}{ColorRecovery1}{ColorRecovery2}{ColorRecovery3}{\IconRecovery}{\LogoRecovery}{#1}{#2}{#3}}%
+\newcommand{\Monitoring}[3]{\GenericCard{\CategoryMonitoring}{ColorMonitoring1}{ColorMonitoring2}{ColorMonitoring3}{\IconMonitoring}{\LogoMonitoring}{#1}{#2}{#3}}%
+\newcommand{\Resources}[3]{\GenericCard{\CategoryResources}{ColorResources1}{ColorResources2}{ColorResources3}{\IconResources}{\LogoResources}{#1}{#2}{#3}}%
