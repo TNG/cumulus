@@ -4,20 +4,16 @@
 %
 %
 % Dimensions
-\pgfmathsetmacro{\cardroundingradius}{4mm}%
+\pgfmathsetmacro{\cardroundingradius}{2.3mm}%
+\pgfmathsetmacro{\bleed}{0.3}%
+\pgfmathsetmacro{\internalpadding}{0.4}%
 \pgfmathsetmacro{\cardwidth}{7}%
 \pgfmathsetmacro{\cardheight}{12}%
+\pgfmathsetmacro{\cardwidthPrint}{\cardwidth+2*\bleed}%
+\pgfmathsetmacro{\cardheightPrint}{\cardheight+2*\bleed}%
 \pgfmathsetmacro{\textpadding}{0.75}%
 \pgfmathsetmacro{\textpadding}{0.75}%
 \pgfmathsetmacro{\additionalpadding}{0.75}%
-%
-% Colors
-\definecolor{ColorAccessSecrets}{HTML}{EB5C4A}%
-\definecolor{ColorDelivery}{HTML}{3CB7F0}%
-\definecolor{ColorRecovery}{HTML}{0DB080}%
-\definecolor{ColorMonitoring}{HTML}{F5A52B}%
-\definecolor{ColorResources}{HTML}{A54FC2}%
-\definecolor{ColorCoverLogo}{HTML}{2C6AA8}%
 %
 % Fonts
 \newcommand{\detailsfontsize}{\large}%

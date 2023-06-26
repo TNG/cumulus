@@ -1,0 +1,24 @@
+% © 2023 TNG Technology Consulting
+%
+% SPDX-License-Identifier: Apache-2.0
+%%
+% Logo for the back
+\newcommand{\TNGLogo}{%
+  \node[text width=(\cardwidth-2*\textpadding)*1cm,below right,inner sep=0, align=left] at (0.15*\cardwidth+\bleed,0.93*\cardheight+\bleed)%
+  {% 
+    \includegraphics[width=.9\textwidth]{img/tng/tng_logo_white.pdf}
+  };%
+}%
+%
+\newcommand{\OWASPLogo}{%
+  \node[text width=(\cardwidth-2*\textpadding)*1cm,below right,inner sep=0, align=left] at (0.15*\cardwidth+\bleed,0.18*\cardheight+\bleed)%
+  {% 
+    \includegraphics[width=0.9\textwidth]{img/tng/owasp_logo_white.pdf}
+  };%
+}%
+%
+\newcommand{\Logo}{%
+  \TNGLogo%
+  \OWASPLogo%
+}%
+%

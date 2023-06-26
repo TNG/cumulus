@@ -5,17 +5,17 @@
 % Background
 \newcommand{\CoverBackground}{%
   % Background fill
-  \fill[fill=ColorCoverLogo!80,rounded corners=0] (0,0) rectangle (1*\cardwidth,1*\cardheight);%
+  \fill[fill=ColorCoverLogo1,rounded corners=0] (0,0) rectangle (2*\cardwidth,2*\cardheight);%
   % Background number
-  \node[text width=\cardwidth, anchor=north] at (-3.0,1.2*\cardheight)%
+  \node[text width=\cardwidth, anchor=north] at (-3.0+\bleed,1.2*\cardheight+\bleed)%
   {%
-  \rotatebox{45}{\resizebox{!}{10cm}{\Huge \textbf{\color{ColorCoverLogo!55} C}}}%
+  \rotatebox{45}{\resizebox{!}{10cm}{\Huge \textbf{\color{ColorCoverLogo2} C}}}%
   };%
 }%
 %
 % Cover Logo
 \newcommand{\CoverLogo}{%
-  \node[text width=(0.7*\cardwidth)*1cm,below right,inner sep=0, align=left] at (0.25*\cardwidth, 0.97*\cardheight)%
+  \node[text width=(0.7*\cardwidth)*1cm,below right,inner sep=0, align=left] at (0.25*\cardwidth+\bleed, 0.97*\cardheight+\bleed)%
   {%
     \includegraphics[width=0.8\textwidth]{img/cover_logo.pdf}%
   };%
@@ -23,11 +23,11 @@
 %
 % Title
 \newcommand{\CoverTitle}{%
-  \node[text centered, text width=(\cardwidth)*1cm,below right,inner sep=0] at (0,0.7*\cardheight)%
+  \node[text centered, text width=(\cardwidth)*1cm,below right,inner sep=0] at (\bleed,0.7*\cardheight+\bleed)%
   {% 
     \resizebox{!}{1cm}{\Huge cumulus}%
   };%
-  \node[text centered, text width=(\cardwidth)*1cm,below right,inner sep=0] at (0,0.55*\cardheight)%
+  \node[text centered, text width=(\cardwidth)*1cm,below right,inner sep=0] at (\bleed,0.55*\cardheight+\bleed)%
   {% 
     {\huge threat modeling the clouds}%
   };%
@@ -35,19 +35,15 @@
 %
 % Version
 \newcommand{\CoverVersion}{%
-  % \node[text centered, text width=(\cardwidth)*1cm,below right,inner sep=0] at (0,0.3*\cardheight)%
-  % {% 
-  %   {\small \makeatletter\input{version.tex}}%
-  % };%
-  \node[text width=(0.75*\cardheight)*1cm,below right,inner sep=0, align=left, rotate=90] at (0.075*\cardwidth, 0.05*\cardheight)%
+  \node[text width=(0.75*\cardheight)*1cm,below right,inner sep=0, align=left, rotate=90] at (0.075*\cardwidth+\bleed, 0.05*\cardheight+\bleed)%
     {%
-      {\large \color{ColorCoverLogo!25} \makeatletter\input{version.tex}}%
+      {\large \color{ColorCoverLogo3} \makeatletter\input{version.tex}}%
     };%
 }%
 %
 % CC Licensing
 \newcommand{\CoverLicense}{%
-  \node[text width=(0.7*\cardwidth)*1cm,below right,inner sep=0, align=left] at (0.25*\cardwidth, 0.1*\cardheight)%
+  \node[text width=(0.7*\cardwidth)*1cm,below right,inner sep=0, align=left] at (0.25*\cardwidth+\bleed, 0.125*\cardheight+\bleed)%
   {%
     \includegraphics[width=0.8\textwidth]{img/cc-by.pdf}%
   };%
@@ -55,7 +51,7 @@
 %
 \begin{tikzpicture}%
   \begin{scope}[xshift=0, yshift=0, local bounding box=scopeAinner]%
-    \clip [rounded corners=0] (0, 0) rectangle ++(\cardwidth,\cardheight);%
+    \clip [rounded corners=0] (0, 0) rectangle ++(\cardwidthPrint,\cardheightPrint);%
     %
     \CoverBackground
     \CoverTitle
