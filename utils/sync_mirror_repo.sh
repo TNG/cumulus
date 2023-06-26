@@ -6,7 +6,10 @@ MAIN_BRANCH="main"
 
 FILES_NOT_IN_SYNC=(
   "readme.md"
+  "tex/additional_cards.tex"
   "tex/lib/logo.tex"
+  "tex/lib/logo_for_back.tex"
+  "tex/additional_cards.tex"
   "tex/img/cover_logo.pdf"
   "docs/img/cards.svg"
 )
