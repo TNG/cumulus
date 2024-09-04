@@ -1,16 +1,9 @@
 % © 2023 TNG Technology Consulting
 %
 % SPDX-License-Identifier: Apache-2.0
-%%
+%
+% Categories
+%
 % Logo
-\newcommand{\Logo}[1]{%
-  \node[text width=(0.65*\cardwidth)*1cm,below right,inner sep=0, align=left] at (0.38*\cardwidth+\bleed, 0.115*\cardheight+\bleed)%
-  {%
-    \ifthenelse{\boolean{doPrintLogoInColor}}{%   
-      \includegraphics[width=0.8\textwidth]{#1}%
-    }{%
-      \includegraphics[width=0.8\textwidth]{\LogoBlack}%
-    }%
-  };%
-}%
+\newcommand{\Logo}[1]{}%
 %
