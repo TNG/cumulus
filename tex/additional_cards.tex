@@ -29,7 +29,7 @@
   };%
 }%
 %
-\newcommand{\GithubTeaser}[4]{%
+\newcommand{\Teaser}[5]{%
   % Card value and icon
   \node[text width=(\cardwidth-2*\textpadding)*1cm,below right,inner sep=0, align=left] at (0.55*\cardwidth,#1*\cardheight)%
   {% 
@@ -37,7 +37,7 @@
   };%
   \node[text width=(\cardwidth-2*\textpadding)*1cm,below right,inner sep=0, align=left] at (\textpadding+\bleed,#1*\cardheight-0.12*\cardheight)%
   {% 
-    \includegraphics[width=1.25cm]{img/tng/icon_github.pdf}
+    \includegraphics[width=1.25cm]{#5}
   };%
   \node[text width=(\cardwidth-4*\textpadding)*1cm,below right,inner sep=0, align=left] at (\textpadding+\bleed,#1*\cardheight+0.05*\cardheight)%
   {% 
@@ -47,6 +47,14 @@
   {% 
     {\small{#3}}
   };%
+}%
+%
+\newcommand{\GithubTeaser}[4]{%
+  \Teaser{#1}{#2}{#3}{#4}{img/tng/icon_github.pdf}
+}%
+%
+\newcommand{\OWASPTeaser}[4]{%
+  \Teaser{#1}{#2}{#3}{#4}{img/tng/icon_owasp.pdf}
 }%
 %
 \begin{tikzpicture}%
@@ -68,7 +76,7 @@
     %
     \Frame
     \TNGLogo
-    \GithubTeaser{0.92}{img/tng/qr-tng-cumulus.pdf}{github.com/TNG/cumulus}{Find it online!}
+    \OWASPTeaser{0.92}{img/tng/qr-owasp-cumulus.pdf}{owasp.org/www-project-cumulus}{Find it online!}
     \draw (\textpadding+\bleed,0.57*\cardheight+\bleed) -- (\cardwidth-\textpadding+\bleed,0.57*\cardheight+\bleed);
     \GithubTeaser{0.5}{img/tng/qr-tng-eop.pdf}{github.com/TNG/elevation-of-privilege}{Play it online!}
   \end{scope}%
