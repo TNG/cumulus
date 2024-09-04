@@ -31,7 +31,7 @@ function compile() {
   local container_image
   repo_base_dir="$(git rev-parse --show-toplevel)"
   container_work_dir="/tmp"
-  container_image="leplusorg/latex"
+  container_image="leplusorg/latex:alpine"
   
   docker run \
     --rm \
