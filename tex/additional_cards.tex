@@ -75,6 +75,31 @@
     \clip [rounded corners=0] (0, 0) rectangle ++(\cardwidthPrint,\cardheightPrint);%
     %
     \Frame
+    \node[text width=(\cardwidth-2*\textpadding)*1cm,below right,inner sep=0, align=left] at (\textpadding+\bleed,\cardheight-0.04*\cardheight)%
+    {% 
+      {\footnotesize{Cumulus is a trick taking card game for 2-9 players with threat categories as suits, of which \textbf{access\&secrets} is trump.
+
+        We advise to decide together on the category you want to investigate first and timebox the game.
+        
+        \textbf{Before you play:} Define the system to talk about based on a simple architectural diagram.
+        
+        \begin{enumerate}[left=0cm, label=\textcolor{ColorCoverLogo1}{\arabic*}]
+          \item Shuffle and distribute all cards.
+          \item The lowest card in the starting suit begins the game and every other player adds one card, following suit if able.
+          \item Every time a player places a card, all players try to identify how it applies to their system. If something is found, it is noted down and the finder receives a point.
+          \item The winner of the trick receives a point and may start the next trick with a card of their choice.
+          \item Don't forget to take a break if needed.
+        \end{enumerate}
+      }}
+    };%
+  \end{scope}%
+\end{tikzpicture}\\%
+%
+\begin{tikzpicture}%
+  \begin{scope}[xshift=0, yshift=0, local bounding box=scopeAinner]%
+    \clip [rounded corners=0] (0, 0) rectangle ++(\cardwidthPrint,\cardheightPrint);%
+    %
+    \Frame
     \TNGLogo
     \OWASPTeaser{0.92}{img/tng/qr-owasp-cumulus.pdf}{owasp.org/www-project-cumulus}{Find it online!}
     \draw (\textpadding+\bleed,0.57*\cardheight+\bleed) -- (\cardwidth-\textpadding+\bleed,0.57*\cardheight+\bleed);
