@@ -51,7 +51,7 @@ The dealer plays a card in the starting suit.Each other players has to follow th
 If that is not possible, the player can choose any card on hand.
 The winner of the round takes the trick and is the one who played the highest value card in the round's suit or the highest trump card.
 
-Trumps are cards from the suit *resources*.
+Trumps are cards from the suit *Access & Secrets*.
 
 The winner then receives a point, starts a new round and chooses the new suit.
 Each time a new card is played, all players are asked to think about whether that particular threat, mentioned on the current card, applies to their system in some form.
