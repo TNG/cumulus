@@ -75,7 +75,9 @@ This can easily be self-hosted.
 You can find it under: 
   
 [https://github.com/tng/elevation-of-privilege](https://github.com/tng/elevation-of-privilege) 
-  
+
+Alternatively, Cumulus can be played at [copi.owasp.org](https://copi.owasp.org), see [the release notes](https://github.com/OWASP/cornucopia/releases/tag/v2.4.0). Thanks to [Johan Sydseter](https://github.com/sydseter).
+
 ## Contributing 
 Contributions to the card deck are very much appreciated.
 In the end, this card deck is intended to be a community project.
